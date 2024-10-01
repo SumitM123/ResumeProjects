@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=SpiderSolitaire
+comment1.params=
+comment1.target=SpiderSolitaire()
+comment2.params=
+comment2.target=void\ play()
+comment2.text=Main\ game\ loop\ that\ plays\ games\ until\ user\ wins\ or\ quits\ *
+numComments=3
