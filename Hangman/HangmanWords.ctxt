@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=HangmanWords
+comment1.params=
+comment1.target=HangmanWords()
+comment2.params=
+comment2.target=java.lang.String\ getRandomWord()
+numComments=3

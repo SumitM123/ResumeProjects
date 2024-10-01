@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=HangmanWordsLines
+comment1.params=
+comment1.target=HangmanWordsLines()
+comment10.params=
+comment10.target=void\ printRightAndWrong()
+comment2.params=str
+comment2.target=void\ rightLettersGuessed(java.lang.String)
+comment3.params=c
+comment3.target=void\ rightLettersGuessed(char)
+comment4.params=
+comment4.target=boolean\ didWin()
+comment5.params=
+comment5.target=void\ numberOfTimesWrong()
+comment6.params=
+comment6.target=void\ drawTheHangingMan()
+comment7.params=str
+comment7.target=boolean\ checkWrongCharactersGuessed(java.lang.String)
+comment8.params=c
+comment8.target=boolean\ checkWrongCharactersGuessed(char)
+comment9.params=
+comment9.target=boolean\ gameOver()
+numComments=11
