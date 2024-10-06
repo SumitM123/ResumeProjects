@@ -216,11 +216,4 @@ public class HangmanWordsLines {
         System.out.println("Wrongly guessed words: ");
         System.out.println(numberOfWrongWords);
     }
-    /*public static void main(String[] args) {
-    try {
-    HangmanWordsLines word = new HangmanWordsLines();
-    } catch(Exception e) {
-    System.out.println("Error: " + e.getMessage());
-    }
-    }*/
 }

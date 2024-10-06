@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.io.IOException;
+import java.util.Scanner;
 public class Game {
     private Scanner checkUser;
     private HangmanWordsLines hangMan;
@@ -18,8 +18,6 @@ public class Game {
             System.out.println("   character (enter character)");
             System.out.println("   word (enter word)");
             System.out.println("   quit");
-            /*System.out.println("   save");
-            System.out.println("   load");*/
             String word = checkUser.next();
             if(word.equals("character")) {
                 try {
@@ -61,6 +59,14 @@ public class Game {
         }
         if(gameOver) {
             System.out.println("Oh no, you lost the game, please try again!");
+        }
+    }
+    public static void main(String[] args) {
+        try {
+            Game hangPlay = new Game();
+            hangPlay.play();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

@@ -1,7 +1,7 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
-import java.io.IOException;
 public class HangmanWords {
     
     public HangmanWords () {
@@ -27,14 +27,4 @@ public class HangmanWords {
         }
         return word;
     }
-
-    /*public static void main(String[] args) {
-        try {
-            HangmanWords word = new HangmanWords();
-            System.out.println(word.getRandomWord());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return;
-        }
-    }*/
 }
