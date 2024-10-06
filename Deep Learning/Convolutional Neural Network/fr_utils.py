@@ -3,7 +3,6 @@
 import tensorflow as tf
 import numpy as np
 import os
-#import cv2
 from numpy import genfromtxt
 from tensorflow.keras.layers import Conv2D, ZeroPadding2D, Activation, Input, concatenate
 from tensorflow.keras.models import Model

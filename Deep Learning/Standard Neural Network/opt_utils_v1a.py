@@ -59,15 +59,11 @@ def initialize_parameters(layer_dims):
                     Wl -- weight matrix of shape (layer_dims[l-1], layer_dims[l])
                     bl -- bias vector of shape (1, layer_dims[l])
                     
-    Tips:
-    - For example: the layer_dims for the "Planar Data classification model" would have been [2,2,1]. 
-    This means W1's shape was (2,2), b1 was (1,2), W2 was (2,1) and b2 was (1,1). Now you have to generalize it!
-    - In the for loop, use parameters['W' + str(l)] to access Wl, where l is the iterative integer.
     """
     
     np.random.seed(3)
     parameters = {}
-    L = len(layer_dims) # number of layers in the network
+    L = len(layer_dims) 
 
     for l in range(1, L):
         parameters['W' + str(l)] = np.random.randn(layer_dims[l], layer_dims[l-1])*  np.sqrt(2 / layer_dims[l-1])
@@ -91,10 +87,6 @@ def compute_cost(a3, Y):
     Returns:
     cost - value of the cost function without dividing by number of training examples
     
-    Note: 
-    This is used with mini-batches, 
-    so we'll first accumulate costs over an entire epoch 
-    and then divide by the m training examples
     """
     
     logprobs = np.multiply(-np.log(a3),Y) + np.multiply(-np.log(1 - a3), 1 - Y)
@@ -190,20 +182,14 @@ def predict(X, y, parameters):
     m = X.shape[1]
     p = np.zeros((1,m), dtype = np.int)
     
-    # Forward propagation
     a3, caches = forward_propagation(X, parameters)
     
-    # convert probas to 0/1 predictions
     for i in range(0, a3.shape[1]):
         if a3[0,i] > 0.5:
             p[0,i] = 1
         else:
             p[0,i] = 0
 
-    # print results
-
-    #print ("predictions: " + str(p[0,:]))
-    #print ("true labels: " + str(y[0,:]))
     print("Accuracy: "  + str(np.mean((p[0,:] == y[0,:]))))
     
     return p
@@ -220,16 +206,16 @@ def load_2D_dataset():
     return train_X, train_Y, test_X, test_Y
 
 def plot_decision_boundary(model, X, y):
-    # Set min and max values and give it some padding
+
     x_min, x_max = X[0, :].min() - 1, X[0, :].max() + 1
     y_min, y_max = X[1, :].min() - 1, X[1, :].max() + 1
     h = 0.01
-    # Generate a grid of points with distance h between them
+
     xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-    # Predict the function value for the whole grid
+
     Z = model(np.c_[xx.ravel(), yy.ravel()])
     Z = Z.reshape(xx.shape)
-    # Plot the contour and training examples
+
     plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral)
     plt.ylabel('x2')
     plt.xlabel('x1')
@@ -248,7 +234,6 @@ def predict_dec(parameters, X):
     predictions -- vector of predictions of our model (red: 0 / blue: 1)
     """
     
-    # Predict using forward propagation and a classification threshold of 0.5
     a3, cache = forward_propagation(X, parameters)
     predictions = (a3 > 0.5)
     return predictions
@@ -256,7 +241,7 @@ def predict_dec(parameters, X):
 def load_dataset():
     np.random.seed(3)
     train_X, train_Y = sklearn.datasets.make_moons(n_samples=300, noise=.2) #300 #0.2 
-    # Visualize the data
+
     plt.scatter(train_X[:, 0], train_X[:, 1], c=train_Y, s=40, cmap=plt.cm.Spectral);
     train_X = train_X.T
     train_Y = train_Y.reshape((1, train_Y.shape[0]))
