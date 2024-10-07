@@ -23,10 +23,8 @@ public class Card implements Comparable<Card>
      * @param value an <code>int</code> value containing the point value of the card
      */    
     public Card(String symbol, int value) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
         this.symbol = symbol;
         this.value = value;
-        //isFaceUp = true;
     }
     /**
      * Creates a new <code>Card</code> instance.
@@ -42,7 +40,6 @@ public class Card implements Comparable<Card>
      * @return this <code>Card</code>'s symbol.
      */
     public String getSymbol() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
         return this.symbol;
     }
 
@@ -52,7 +49,6 @@ public class Card implements Comparable<Card>
      * @return this <code>Card</code>'s value.
      */
     public int getValue() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
         return this.value;
     }
 
@@ -81,7 +77,6 @@ public class Card implements Comparable<Card>
      *  @param <code>Card</code> is to check if the value and symbol of the card are equal
      */
     public boolean equals(Card other) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
         return this.value == other.getValue() && this.symbol.equals(other.getSymbol());
     }
     /**
@@ -109,7 +104,6 @@ public class Card implements Comparable<Card>
      */
     @Override
     public String toString() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
         if(!(isFaceUp)) {
             return "X";
         } else {

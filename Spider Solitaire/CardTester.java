@@ -1,7 +1,6 @@
 public class CardTester
 {
     public static void main(String[] args) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
         Card card1 = new Card("A", 1);
         Card card2 = new Card("Q", 12);
         System.out.println(card1.getSymbol());

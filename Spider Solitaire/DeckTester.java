@@ -1,30 +1,6 @@
-import java.util.*;
 public class DeckTester
 {
     public static void main(String[] args) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-        /* IF GAME IS SLOW, SWITCH TO ARRAYS */
-        /*ArrayList<String> symbols = new ArrayList<String>();
-        symbols.add("A");
-        symbols.add("2");
-        symbols.add("3");
-        symbols.add("4");
-        symbols.add("5");
-        symbols.add("6");
-        symbols.add("7");
-        symbols.add("8");
-        symbols.add("9");
-        symbols.add("10");
-        symbols.add("J");
-        symbols.add("Q");
-        symbols.add("K");
-        ArrayList<Integer> values = new ArrayList<Integer>();
-        for(int i = 1; i <= 13; i++) {
-            values.add(i);
-        }
-        Deck deck1 = new Deck();
-        System.out.println(deck1);
-        deck1.shuffle();*/
         Deck wow = new Deck();
         Card c = new Card("K", 13);
         Card d = new Card("Q", 12);

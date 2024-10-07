@@ -1,23 +1,10 @@
-/* Sumit Mantri; seventh period APCS; December 8, 2020 
- * Activies 4 and 5 took me 11 hours to do. 
- * These 2 activities were the hardest assignment I've ever did. It extremely challenging to do has at the first, I was extending the Board class from 
- * Deck to access the symbols and values of the card in the Deck class. Then I realized that I was doing it wrong, and there's no need in making Board
- * a subclass to Deck. The deck class is just an arraylist of cards, and the Board class is where it's specifially designed for Spider Solitaire. After 
- * realizing this, I had to plan out what I was going to be doing for the stacks and draw pile. I got out a pen and paper, and started to write down my 
- * stategy on how I'm going to be finishing this lab. I was stuck in many instances when coding, but the built in debugger by blueJ was really helpful for
- * me to figure out where and what I'm doing wrong. Has I was doing the activities, I was adding more and more methods to the Deck and Board class to make 
- * it easier for me, and make my code shorter as many of these methods are used quite often. Although this may be quite a frustrating and a very challenging 
- * lab, it really made me a better programmer overall and significantly improved my problem solving skills. 
- */
 import java.util.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
 import javax.swing.JFileChooser;
 public class Board {   
-    /* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-    // Attributes 
-    /**
+     /**
      *  Sets up the Board and fills the stacks and draw pile from a Deck
      *  consisting of numDecks Decks.  Here are examples:
      *  
@@ -40,7 +27,6 @@ public class Board {
     Deck[] currentD; 
     ArrayList<Deck> loadToGame = new ArrayList<Deck>();;
     public Board(int numStacks, int numDecks) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
         theNumStacks = numStacks;
         theNumDecks = numDecks;
         totalDecks = new ArrayList<Deck>(); 
@@ -66,14 +52,12 @@ public class Board {
                 cardsInTotal.add(currentDeck.getCard(l));  
             }
         }
-        //System.out.println(cardsInTotal);
         int totalCards = cardsInTotal.size(); 
         int cardsInTotalStacks = totalCards/2; 
         currentD = new Deck[theNumStacks];
         int n = 0; 
         for(int m = 0; m < cardsInTotalStacks; m++) {
             Card currentC = cardsInTotal.get(m);
-            //System.out.println(currentC);
             Deck currentDec = new Deck();
             //System.out.println(currentDec);
             if(currentD[n] != null) {
@@ -133,8 +117,6 @@ public class Board {
      *  next card if one is available.
      */
     public void makeMove(String symbol, int src, int dest) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 5 *** */
-
         boolean isRow = false;
         Deck getDeck = currentD[src];
         //System.out.println(getDeck);
@@ -191,8 +173,7 @@ public class Board {
                 break;
             }
         }
-        //System.out.println(getDeck);
-        //Card checkToSrc;
+
         if(isRow) {
             Deck destDeck = currentD[dest];
             //System.out.println(destDeck);
@@ -238,7 +219,6 @@ public class Board {
      *  Moves one card onto each stack, or as many as are available
      */
     public void drawCards() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 5 *** */
         int j = 0;
         boolean hasCards = false;
         for(int i = 0; i < currentD.length; i++) {
@@ -269,7 +249,6 @@ public class Board {
      *  Returns true if all stacks and the draw pile are all empty
      */ 
     public boolean isEmpty() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 5 *** */
         boolean isStacksEmpty = false;
         boolean isDrawPileEmpty = false;
         boolean isItEmpty = false;
@@ -300,8 +279,6 @@ public class Board {
      *  then an invalid move message is displayed and the Board is not changed.
      */
     public void clear(int sourceStack) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 5 *** */
-        //try {
         Deck currSourceStack = currentD[sourceStack];
         boolean ifRightCard = false;
         boolean isCorrectSize = true;
@@ -331,9 +308,6 @@ public class Board {
                             break;
                         }
                     } else if(!(isCorrectSize) && ifRightCard && currSourceStack.getCard(i).getSymbol() == allSymbols[allSymbols.length - 1]) {
-                        //Deck endCards = new Deck();
-                        //System.out.println(currSourceStack.getSize());
-                        //System.out.println(i);
                         removing = i;
                         for(int k = 0; k < allSymbols.length; k++) {
                             currSourceStack.removeCard(currSourceStack.getCard(removing));
@@ -357,21 +331,10 @@ public class Board {
                 }
             }
         }
-        /*} catch (ArrayIndexOutOfBoundsException e) {
-        System.out.println("Error: " + e.getMessage());
-        return;
-        } catch (InputMismatchException e) {
-        System.out.println("Error: " + e.getMessage());
-        return;
-        } catch (NullPointerException e) {
-        System.out.println("Error: " + e.getMessage());
-        return;
-        }*/
     }
 
     public void save() throws IOException {
         // Create a JFileChooser that points to the current directory
-        //try {
         JFileChooser chooser = new JFileChooser(".");
         // Tell the JFileChooser to show a Save dialog window
         chooser.showSaveDialog(null);
@@ -383,8 +346,6 @@ public class Board {
             Deck getCurrentDeck = currentD[i];
             banana.write(getCurrentDeck.getString() + "\n");
         }
-        //banana.write("\n");
-        //banana.write("\n");
         Deck cardsFromDrawPile = new Deck();
         for(Card in: drawPile) {
             //in.setFaceUp(true);
@@ -392,10 +353,6 @@ public class Board {
         }
         banana.write(cardsFromDrawPile.getString());
         banana.close();
-        /*} catch(Exception e) {
-        System.out.println("Error: " + e.getMessage());
-        return;
-        }*/
     }
 
     public void load() throws IOException{
@@ -408,17 +365,12 @@ public class Board {
         File apple = chooser.getSelectedFile();
 
         // Create a FileWriter that can write to the selected File
-        //FileWriter banana = new FileWriter(apple);
 
         Scanner in = new Scanner(apple);
         int i = 0; // 0
         int numberDecks = 1;
         //System.out.println("Stacks: ");
         Deck drawPileFromLoad;
-        /*for(int z = 0; z < currentD.length; z++) {
-        Deck empty = new Deck();
-        currentD[z] = empty;
-        }*/
         // IMPORTANT: Make CurrentD and Drawpile empty
         while(in.hasNext()) {
             if(i == theNumStacks) {
@@ -429,22 +381,13 @@ public class Board {
                 loadToGame.add(drawPileFromLoad);
             } else {
                 String curr = in.nextLine();
-                /*String gettingDeck = "";
-                for(int j = 0; j < curr.length(); j++) {
-                gettingDeck += curr.charAt(j);
-                }*/
                 Deck movingToLoad = new Deck(curr);
-                //System.out.println(numberDecks + ": [" + movingToLoad + "]");
                 loadToGame.add(movingToLoad);
             }
             numberDecks++;
             i++;
         }
-        /*int j = 0;
-        for(Deck inDeck: loadToGame) {
-        currentD[j] = inDeck;
-        j++;
-        }*/
+
         for(int j = 0; j < loadToGame.size(); j++) {
             if(j == theNumStacks) {
                 drawPile.clear();
@@ -465,9 +408,7 @@ public class Board {
      * pile, and done stacks (if you chose to have them)
      */
     public void printBoard() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-        //for() {
-        //}
+
         //if(!isStacksEmpty && !isDrawPileEmpty) {
         System.out.println("Stacks: ");
         //System.out.println(Arrays.toString(currentD));
@@ -493,8 +434,5 @@ public class Board {
         System.out.println();
         System.out.println("Draw Pile:");
         System.out.println(drawPile);
-        /*} else if (isStacksEmpty && isDrawPileEmpty) {
-        System.out.println("Congratulations!  You win!");
-        }*/
     }
 }

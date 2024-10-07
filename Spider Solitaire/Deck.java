@@ -1,12 +1,3 @@
-/* Sumit Mantri; seventh period APCS; December 2, 2020 
- * Activities 1-3 took me around 2 hours to finish.
- * This was lab wasn't really challenging, and was quite a breeze, especially the Card class, although I had one realization when I was doing activity
- * 4 and 5. Before, I had an arraylist of symbols and values in the Deck class, and I came to realize that this deck class is just an arraylist of cards. 
- * The Board class was where we have an array or Arraylist of values/symbols, and after noticing this, I made immediate changes to both of the classes. The
- * most challenging part of the Activities, in my opinion, was the shuffle method has I had some trouble debugging in trying to get the correct random 
- * numbers, has in numbers that are not out of bounds, etc. Other than the two conflicts I talked about, I would say this was a pretty easy lab and enjoyable
- * lab. 
- */
 import java.util.*;
 /**
  * This class is going to have an arraylist of <Code>Card</Code>'s.
@@ -14,13 +5,10 @@ import java.util.*;
 public class Deck
 {
     /* Javadocs Outline
-     * Write class summary at the very top of the class
-     * 
      * First line is a description of what the method does
      * Then describe every single parameter: @param nameOfParameter and then description
      * When returning, write @return, and write description of it returns
      */
-    /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
     /**
      * It stores the symbols being inputed into constructor.
      */
@@ -188,17 +176,10 @@ public class Deck
         return variationDeck;
     }
 
-    /*public Card getCardFromSymbolsAndValues(String symbol, int value) {
-    Card smth = deck.get(symbol, value);
-    //deck.get();
-    }*/
     public void add(int n, Card c) {
         deck.add(n, c);
     }
 
-    /*public Card getIndexOfCard(String symbol, int value) {
-
-    }*/
     @Override
     /**
      * This method is going return all the symbols and values in the object of the class. 
